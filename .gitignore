@@ -1,0 +1,4 @@
+# create root .gitignore if missing and add ignore rules
+echo *.env >> .gitignore
+echo server/.env >> .gitignore
+git add .gitignore
