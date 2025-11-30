@@ -42,6 +42,8 @@ io.on("connection", (scoket)=>{
 //Middleware setup
 app.use(express.json({limit: "4mb"}));
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
 
 
 
