@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import SideBar from '../components/SideBar'
 import ChatContainer from '../components/ChatContainer'
 import RightSideBar from '../components/RightSideBar'
 import ImagePreviewModal from '../components/ImagePreviewModal'
+import { ChatContext } from '../../context/ChatContext'
 
 const HomePage = () => {
 
-  const [selectedUser, setSelectedUser] = useState(false);
+  const {selectedUser} = useContext(ChatContext);
 
   const [previewImages, setPreviewImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,18 +29,11 @@ const HomePage = () => {
           ${selectedUser ? 'md:grid-cols-[1fr_1.5fr_1fr] xl:grid-cols-[1fr_2fr_1fr]' : 'md:grid-cols-2'}
           `}
         >
-          <SideBar selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
+          <SideBar />
 
-          <ChatContainer
-            selectedUser={selectedUser}
-            setSelectedUser={setSelectedUser}
-          />
+          <ChatContainer />
 
-          <RightSideBar
-            selectedUser={selectedUser}
-            setSelectedUser={setSelectedUser}
-            openPreview={openPreview}
-          />
+          <RightSideBar openPreview = {openPreview} />
         </div>
       </div>
 
