@@ -61,4 +61,6 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 //export server for vercel
-export { io, userScoketMap, server };
+export { io, userScoketMap};
+
+export default server;
